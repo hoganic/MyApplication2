@@ -1,0 +1,91 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return false" onchange="BMR.value=((66+(6.23*weight.valueAsNumber)+(12.7*height.valueAsNumber)-(6.8*age.valueAsNumber))*activity.value).toFixed(0);
+protein.value = (proteinMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
+fat.value = (fatMult.value*(weight.valueAsNumber-((bodyfat.valueAsNumber/100)*weight.valueAsNumber))).toFixed(0);
+carbs.value=((((BMR.value+goal.value))-protein.value*4-fat.value*9)/4).toFixed(0); 
+calories.value=(carbs.value*4+fat.value*9+protein.value*4).toFixed(0);
+">
+
+
+  <legend>Male Macro Calculator</legend>
+
+  <p><label for="height">Your height in inches:</label>
+  <input type="number" min="0" id="height" value=0 name="height"></p>
+
+  <p><label for="weight">Your weight:</label>
+  <input type="number" min="0" id="weight" value=0 name="weight"></p>
+
+  <p><label for="age">Your age:</label>
+  <input type="number" min="0" id="age" value=0 name="age"></p>
+
+  <p><label for="bodyfat">Your Body Fat %:</label>
+  <input type="number" min="0" id="bodyfat" value=0 name="bodyfat"></p>
+
+  <p><label for="proteinMult">Protein Multiplier:</label>
+  <input type="radio" id="proteinMult" value=1 name="proteinMult">1g
+  <input type="radio" id="proteinMult" value=1.5 name="proteinMult">1.5g</p>
+
+  <p><label for="fatMult">Fat Multiplier:</label>
+  <input type="radio" id="fatMult" value=.35 name="fatMult">.35g
+  <input type="radio" id="fatMult" value=.5 name="fatMult">.5g</p>
+
+   <p><label for="goal">Goal:</label>
+  <p><input type="radio" id="goal" value=-500 name="goal">Lose 1 pound/week</p>
+  <p><input type="radio" id="goal" value=-250 name="goal">Lose .5 pound/week</p>
+  <p><input type="radio" id="goal" value=0 name="goal">Maintain</p>
+  <p><input type="radio" id="goal" value=250 name="goal">Gain .5 pound/week</p>
+ <p><input type="radio" id="goal" value=500 name="goal">Gain 1 pound/week</p>
+
+   <p><label for="activity">Level of Activity:</label>
+  <p><input type="radio" id="activity" value=1.2 name="activity">Little or No exercise</p>
+  <p><input type="radio" id="activity" value=1.375 name="activity">Light exercise/sports 1-3 days/week</p>
+  <p><input type="radio" id="activity" value=1.55 name="activity">Moderate exercise/sports 3-5 days/week</p>
+  <p><input type="radio" id="activity" value=1.725 name="activity">Hard exercise/sports 6-7 days/week</p>
+ <p><input type="radio" id="activity" value=1.9 name="activity">Very Hard exercise/sports 2x a day</p>
+
+
+
+  <p>BMR: <strong><output style="display:inline" name="BMR" for="weight height age activity">0</output></strong></p>
+
+  <p>Protein: <strong><output style="display:inline" name="protein" for="proteinMult bodyfat weight">0</output></strong></p>
+
+  <p>Fat: <strong><output style="display:inline" name="fat" for="fatMult bodyfat weight">0</output></strong></p>
+
+  <p>Carbs: <strong><output style="display:inline" name="carbs" for="BMR fat protein goal">0</output></strong></p>
+
+  <p>Calories: <strong><output style="display:inline" name="calories" for="carbs fat protein">0</output></strong></p>
+
+
+</form>
+</body>
+</html>
+
+      <footer>
+        <p>&copy; 2016 FitGo, Beep Boop.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
